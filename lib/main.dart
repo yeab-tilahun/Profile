@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(profileCard());
+  runApp(QuoteList());
 }
 
 class profileCard extends StatefulWidget {
@@ -127,5 +127,33 @@ class _profileCardState extends State<profileCard> {
         ),
       ),
     ));
+  }
+}
+
+class QuoteList extends StatefulWidget {
+  const QuoteList({super.key});
+
+  @override
+  State<QuoteList> createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
+  List<String> quotes = [
+    "Be yourself; everyone else is already taken",
+    "I have nothing to declare except my genius",
+    "The truth is rarely pure and never simple",
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Awesome Quotes'),
+          centerTitle: true,
+          backgroundColor: Colors.redAccent,
+        ),
+        body: Column(children: quotes.map((quotes) => Text(quotes)).toList()),
+      ),
+    );
   }
 }
