@@ -12,6 +12,8 @@ class profileCard extends StatefulWidget {
 }
 
 class _profileCardState extends State<profileCard> {
+  int flutterLevel = 0;
+  void set_State() {}
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,6 +24,15 @@ class _profileCardState extends State<profileCard> {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            flutterLevel = flutterLevel + 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey,
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
@@ -76,7 +87,7 @@ class _profileCardState extends State<profileCard> {
               height: 10,
             ),
             Text(
-              "5",
+              '$flutterLevel',
               style: TextStyle(
                   color: Colors.amberAccent[200],
                   letterSpacing: 2,
